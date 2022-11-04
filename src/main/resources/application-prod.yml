@@ -1,0 +1,6 @@
+###logger
+logging:
+  config: classpath:logger/logback-prod.xml
+
+
+

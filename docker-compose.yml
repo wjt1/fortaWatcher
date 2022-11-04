@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  task:
+    image: ${JAVA_IMAGE}
+    container_name: fortaWatcherExecutor
+    working_dir: /app
+    env_file:
+      - .env
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /opt/javaapp/fortaWatcherExecutor:/app
+      - ${TASK_LOG_PATH}:/var/log/applogs/fortaWatcherExecutor
+    command: java $TASK_VM_ARGUS -jar $TASK_JAR_NAME --spring.profiles.active=prod
+

@@ -1,0 +1,22 @@
+### web
+server:
+  port: 0
+
+
+###logger
+logging:
+  config: classpath:logger/logback.xml
+spring:
+  profiles:
+    active: local
+
+
+watcher:
+  botToken: "5361343175:"
+  chatId: "-875972"
+  addressList:
+    - "0x0c1AE552C"
+    - "0x027b2B9b5"
+    - "0x66b2DbeD1"
+    - "0xa4f120f44"
+
