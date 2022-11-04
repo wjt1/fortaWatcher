@@ -12,10 +12,15 @@ watcher:
     - "0x66b2DbeD1e"
     - "0xa4f120f448"
 ```
-
+#### chatId获取
+创建telegram机器人后，获得机器人token，替换{{token}}为对应到机器人，创建一个group，请求下面连接可以获取到chatId，
+如果获取不到踢出机器人然后重新加入群再试。 chatId一般为一个副整数
+```
+https://api.telegram.org/bot{{token}}/getUpdates
+```
 # 部署
-使用maven工具打包将jar
-复制/opt/javaapp/fortaWatcherExecutor目录下
+使用maven工具打包
+复制下面3个文件到部署服务器目录/opt/javaapp/fortaWatcherExecutor
 ```
 1、docker-compose.yml
 2、.env

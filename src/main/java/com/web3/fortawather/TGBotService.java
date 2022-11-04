@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.scheduling.annotation.Schedules;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.telegram.telegrambots.meta.api.methods.groupadministration.GetChatAdministrators;
@@ -21,7 +20,6 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -118,7 +116,7 @@ public class TGBotService {
 //
 //        boolean ok = statistics.getDouble("min") > 0.8;
 //        boolean ok = statistics.getDouble("avg") > 0.8;
-        return statistics.getDouble("min") > 0.8;
+        return statistics.getDouble("min") > 0.9;
 
     }
 

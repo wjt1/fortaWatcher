@@ -12,11 +12,11 @@ spring:
 
 
 watcher:
-  botToken: "5361343175:"
-  chatId: "-875972"
+  botToken: "5361343175:AAGoLxFzG1m0Ppq"
+  chatId: "-8759"
   addressList:
-    - "0x0c1AE552C"
-    - "0x027b2B9b5"
-    - "0x66b2DbeD1"
-    - "0xa4f120f44"
+    - "0x0c1AE55"
+    - "0x027b2B9"
+    - "0x66b2Dbe"
+    - "0xa4f120f"
 
