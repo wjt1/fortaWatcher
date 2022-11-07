@@ -68,7 +68,7 @@ public class TGBotService {
     }
 
     private String getStatistics(String address) {
-        LocalDateTime endDateTime = LocalDateTime.now().minusHours(8);
+        LocalDateTime endDateTime = LocalDateTime.now().minusHours(9);
         LocalDateTime startDateTime = endDateTime.minusMinutes(10);
         String url = "https://api.forta.network/stats/sla/scanner/%s?startTime=%s&endTime=%s".
                 formatted(address,
@@ -136,7 +136,7 @@ public class TGBotService {
             time = time.substring(0, time.lastIndexOf("Z"));
         }
         LocalDateTime localDateTime = LocalDateTime.parse(time,
-                dateTimeFormatter).plusHours(8);
+                dateTimeFormatter).plusHours(9);
 
         return localDateTime.format(DateTimeFormatter.ofPattern(Constant.YYYY_MM_DD_HH_MM_SS));
     }
