@@ -34,6 +34,8 @@ public class TGBotService {
     @Autowired
     private RestTemplate restTemplate;
 
+    public static final String FORMATTER_PATTERN = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+
 
     private Map<String, String> cache = Maps.newConcurrentMap();
 
@@ -66,8 +68,14 @@ public class TGBotService {
     }
 
     private String getStatistics(String address) {
+        LocalDateTime endDateTime = LocalDateTime.now().minusHours(8);
+        LocalDateTime startDateTime = endDateTime.minusMinutes(10);
+        String url = "https://api.forta.network/stats/sla/scanner/%s?startTime=%s&endTime=%s".
+                formatted(address,
+                        startDateTime.format(DateTimeFormatter.ofPattern(FORMATTER_PATTERN)),
+                        endDateTime.format(DateTimeFormatter.ofPattern(FORMATTER_PATTERN))
+                );
 
-        String url = "https://api.forta.network/stats/sla/scanner/%s".formatted(address);
 
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         log.info("{}", response);
@@ -134,7 +142,7 @@ public class TGBotService {
     }
 
     public String getAdmin() {
-        String chatId= watcherCfg.getChatId();
+        String chatId = watcherCfg.getChatId();
         GetChatAdministrators admins = GetChatAdministrators.builder().chatId(chatId).build();
         try {
             return Optional.ofNullable(fortaWatcherBot.execute(admins))
